@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 type Props = {
   children: React.ReactNode;
-  onSubmit: () => void;
+  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
 };
 
 const Form = ({ children, onSubmit }: Props) => {
