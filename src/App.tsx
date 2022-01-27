@@ -1,22 +1,28 @@
 import { useState } from "react";
 import "./styles.css";
 import InputField from "./components/InputField";
+import Form from "./components/Form";
+import Button from "./components/Button";
 
 const App = () => {
   const [todo, setTodo] = useState<string>("");
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const setTodoInput = (input: string) => {
     setTodo(input);
   };
+  const addTodo = (input: string) => {
+    setSubmitted(!submitted);
+    console.log("submitted!");
+  };
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <Form onSubmit={addTodo}>
       <InputField
         value={todo}
         setValue={setTodoInput}
         placeholder={"Enter your password"}
       />
-    </div>
+      <Button />
+    </Form>
   );
 };
 
