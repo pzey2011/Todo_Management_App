@@ -3,11 +3,12 @@ import "./styles.css";
 import InputField from "./components/InputField";
 import Form from "./components/Form";
 import Button from "./components/Button";
-import { Todo } from "./types/Types";
+import { TodoType } from "./types/Types";
+import TodoList from "./components/TodoList";
 
 const App = () => {
   const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<TodoType[]>([]);
 
   const setTodoInput = (input: string) => {
     setTodo(input);
@@ -34,7 +35,7 @@ const App = () => {
         />
         <Button type="submit" activated={todo.length !== 0 ? true : false} />
       </Form>
-      {todosList}
+      <TodoList todos={todos} />
     </React.Fragment>
   );
 };
