@@ -3,7 +3,7 @@ import React from "react";
 interface Props {
   setValue: (arg0: string) => void;
   value: string;
-  placeholder: string;
+  placeholder?: string;
 }
 
 const InputField = ({ value, setValue, placeholder }: Props) => {

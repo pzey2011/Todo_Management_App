@@ -9,11 +9,28 @@
 }
 
 .todo_right {
+  display: flex;
   flex-basis: 80%;
-  text-align: left;
 }
 
 .todo_left {
   display: flex;
   flex-basis: 20%;
+}
+
+.done-checkbox:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.done-checkbox {
+  width: 1em;
+  height: 1em;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.25em;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
 }

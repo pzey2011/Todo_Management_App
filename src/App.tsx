@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./assets/styles.css";
 import InputField from "./components/InputField";
 import Form from "./components/Form";
@@ -19,6 +19,32 @@ const App = () => {
     setTodos([...todos, newTodo]);
     setTodo("");
   };
+  const handleDeleteTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
+  const handleEditTodo = (id: number, text: string) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        const newTodo = { id: todo.id, todo: text, isDone: todo.isDone };
+        return newTodo;
+      } else {
+        return todo;
+      }
+    });
+    setTodos(newTodos);
+  };
+  const handleDoneTodo = (id: number) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        const newTodo = { id: todo.id, todo: todo.todo, isDone: !todo.isDone };
+        return newTodo;
+      } else {
+        return todo;
+      }
+    });
+    setTodos(newTodos);
+  };
 
   return (
     <React.Fragment>
@@ -31,7 +57,12 @@ const App = () => {
           />
           <Button type="submit" activated={todo.length !== 0 ? true : false} />
         </Form>
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          handleDelete={(id: number) => handleDeleteTodo(id)}
+          handleEdit={(id: number) => handleEditTodo(id)}
+          handleDone={(id: number) => handleDoneTodo(id)}
+        />
       </div>
     </React.Fragment>
   );
