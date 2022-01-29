@@ -1,3 +1,5 @@
+import { FaPlus } from "react-icons/fa";
+
 type Props = {
   type: "button" | "submit" | "reset" | undefined;
   activated: boolean | undefined;
@@ -5,7 +7,7 @@ type Props = {
 const Button = ({ activated, type }: Props) => {
   return (
     <button disabled={!activated} type={type}>
-      Add
+      <FaPlus />
     </button>
   );
 };

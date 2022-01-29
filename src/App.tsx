@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css";
+import "./assets/styles.css";
 import InputField from "./components/InputField";
 import Form from "./components/Form";
 import Button from "./components/Button";
@@ -19,23 +19,20 @@ const App = () => {
     setTodos([...todos, newTodo]);
     setTodo("");
   };
-  const todosList = todos.map((todo) => (
-    <li key={todo.id}>
-      {todo.todo}
-      {" isDone: " + todo.isDone}
-    </li>
-  ));
+
   return (
     <React.Fragment>
-      <Form onSubmit={addTodo}>
-        <InputField
-          value={todo}
-          setValue={setTodoInput}
-          placeholder={"Enter a task"}
-        />
-        <Button type="submit" activated={todo.length !== 0 ? true : false} />
-      </Form>
-      <TodoList todos={todos} />
+      <div className="main_container">
+        <Form onSubmit={addTodo}>
+          <InputField
+            value={todo}
+            setValue={setTodoInput}
+            placeholder={"Add a task"}
+          />
+          <Button type="submit" activated={todo.length !== 0 ? true : false} />
+        </Form>
+        <TodoList todos={todos} />
+      </div>
     </React.Fragment>
   );
 };

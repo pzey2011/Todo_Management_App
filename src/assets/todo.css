@@ -1,0 +1,19 @@
+.todo_container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 10px;
+  border-radius: 0.5rem;
+  border: 1px solid #00ccd8;
+  width: 80%;
+}
+
+.todo_right {
+  flex-basis: 80%;
+  text-align: left;
+}
+
+.todo_left {
+  display: flex;
+  flex-basis: 20%;
+}
